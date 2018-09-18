@@ -22,3 +22,12 @@ export const login = (account, password) => fetch('/login', {
   account,
   password
 }, 'POST')
+
+/**
+ * 注册
+ */
+export const regist = (account, password, phoneNumber) => fetch('/regist', {
+  account,
+  password,
+  phoneNumber
+}, 'POST')

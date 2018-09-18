@@ -23,7 +23,7 @@
 // import usersInfo from '../../assets/users-info'
 import Login from '../header/Login'
 import Regist from '../header/Regist'
-import { getUserInfo } from '../../service/getData.js'
+// import { getUserInfo } from '../../service/getData.js'
 
 export default {
   name: 'MyHeader',
@@ -32,6 +32,7 @@ export default {
       msg: 'My header',
       user: {
         'name': '',
+        '_id': '',
         'account': '',
         'password': '',
         'authority': '',
@@ -45,10 +46,10 @@ export default {
   },
   created: function () { // 千万别用箭头函数啊，要不this取不到这个VUE实例
     // this.user = usersInfo.usersArr[0]
-    getUserInfo().then(res => {
-      console.log(res)
-      this.user = res.data
-    })
+    // getUserInfo().then(res => {
+    //   console.log(res)
+    //   this.user = res.data
+    // })
   },
   components: {
     Login,
@@ -60,11 +61,13 @@ export default {
       this.LoginFormShow = true
       this.RegistFormShow = false
     },
-    onLoginResult (value) {
-      if (value) { // 登陆成功
+    onLoginResult (obj) {
+      console.log(obj)
+      if (obj.isLogin) { // 登陆成功
         this.isLogin = true
         this.LoginFormShow = false
         this.RegistFormShow = false
+        this.user = obj.userInfo
       }
     },
     signOut () {
@@ -72,11 +75,13 @@ export default {
       this.LoginFormShow = false
       this.RegistFormShow = false
     },
-    onRegistResult (value) {
-      if (value) { // 注册成功
+    onRegistResult (obj) {
+      console.log(obj)
+      if (obj.isRegist) { // 注册成功
         this.isLogin = true
         this.LoginFormShow = false
         this.RegistFormShow = false
+        this.user = obj.userInfo
       }
     },
     register () {
