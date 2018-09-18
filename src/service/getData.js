@@ -14,3 +14,11 @@ export const getGuessLike = () => fetch('/guessLike', {}, 'GET')
  * 获取'推荐'数据
  */
 export const getRecommend = () => fetch('/recommend', {}, 'GET')
+
+/**
+ * 登陆
+ */
+export const login = (account, password) => fetch('/login', {
+  account,
+  password
+}, 'POST')
