@@ -78,6 +78,7 @@ export default {
     }
   },
   created: function () {
+    // console.log(this.$route.query)
     this.baseInfo = Object.assign({}, this.$route.query.user)
   },
   methods: {

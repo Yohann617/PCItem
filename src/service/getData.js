@@ -3,7 +3,7 @@ import fetch from '../config/fetch'
 /**
  * 获取首页默认地址
  */
-export const getUserInfo = () => fetch('/admin', {}, 'GET')
+export const getUserInfo = (account) => fetch('/admin', {account}, 'POST')
 
 /**
  * 获取'猜你喜欢'数据
