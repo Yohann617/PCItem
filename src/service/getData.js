@@ -31,3 +31,13 @@ export const regist = (account, password, phoneNumber) => fetch('/regist', {
   password,
   phoneNumber
 }, 'POST')
+
+/**
+ * 更新用户信息
+ */
+export const updateUserInfo = (account, name, email, phone) => fetch('/personal/updateUserInfo', {
+  account,
+  name,
+  email,
+  phone
+}, 'POST')

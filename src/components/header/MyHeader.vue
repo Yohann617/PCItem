@@ -11,6 +11,7 @@
            <span>用户名:{{ user.name }}</span>
            <span>权限:{{ user.authority }}</span>
            <span>等级:{{ user.level }}</span>
+           <router-link :to="{path: 'personal', query:{'user': user}}">个人空间</router-link>
            <a @click="signOut()" href="#">退出登陆</a>
          </div>
        </section>

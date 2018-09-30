@@ -32,6 +32,7 @@ export default new Router({
       path: '/personal',
       name: 'personal',
       component: personal,
+      redirect: '/personal/basicInfo',
       children: [{
         path: 'basicInfo',
         component: personalBasicInfo
